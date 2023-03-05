@@ -258,7 +258,7 @@ pwconv
 
 用户组的所有信息都存放在/`etc/group`文件中
 
-```
+```shell
 #增加用户组
 groupadd xx id	#-g Gid 指定组标识号，-o一般与-g选项同时使用，表示新用户组的GID可以与系统已有用户组的GID相同。
 #删除
@@ -266,6 +266,3 @@ groupdel id
 # 修改
 groupmod xx id #-g,-o同groupadd，-n new id
 ```
-
-
-
