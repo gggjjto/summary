@@ -4,7 +4,7 @@
 
 CAN是控制器域网 (Controller Area Network, CAN) 的简称。CAN属于总线式串行通信网络。
 
-![image-20230427002004069](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230427002004069.png)
+![image-20230427002004069](./../imgs/image-20230427002004069.png)
 
 1. CAN节点通过CAN_High、CAN_Low两根线接入CAN总线网络。
 2. CAN收发器将CAN控制器的CAN_TX输出的逻辑值0、1转换为差分信号
@@ -27,15 +27,15 @@ CAN数据报文分**标准和扩展**两种类型。
 
 标准数据报文结构：帧起始(SOF)、仲裁段、控制段、数据段、CRC段、ACK段、帧结束(EOF)
 
-![图-2](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215256989.png)
+![图-2](./../imgs/image-20230426215256989.png)
 
 - **帧起始**占1位，值为0，表示一帧数据报文的开始，帧结束占7位，值都为1，表示一帧数据报文的结束。
 
-  ![image-20230426215435653](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215435653.png)
+  ![image-20230426215435653](./../imgs/image-20230426215435653.png)
 
 - **仲裁段**包括11位的标识符ID和1位RTR
   
-  ![image-20230426215458759](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215458759.png)
+  ![image-20230426215458759](./../imgs/image-20230426215458759.png)
   
   - 每个节点发送的数据报文使用独立的标识符ID，接收方可以通过标识符ID判断数据报文来自哪个节点；
   - RTR指示该数据报文是数据帧还是遥控帧，RTR值为0时表示数据帧，值为1时表示遥控帧，遥控帧不含数据段，节点可以通过发送遥控帧来请求其它节点发送数据。
@@ -43,29 +43,29 @@ CAN数据报文分**标准和扩展**两种类型。
   
 - **控制段**包括1位IDE、1位r0、4位的DLC。
   
-  ![image-20230426215525361](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215525361.png)
+  ![image-20230426215525361](./../imgs/image-20230426215525361.png)
   
   - IDE指示该数据报文属于**标准数据报文还是扩展数据报文**，IDE值为**0时表示标准数据报文**，值为**1时表示扩展数据报文**。DLC指示数据段的字节数（最大值应为8），r0值为0。
   
 - 实际要传输的数据放在**数据段**，占0 ~ 8个字节，即一帧数据报文最多只能携带8个字节的数据内容。数据段的字节数通过DLC指定。
 
-  ![image-20230426215650468](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215650468.png)
+  ![image-20230426215650468](./../imgs/image-20230426215650468.png)
 
 - **CRC段**包含**15位的CRC和1位CRC界定符**。
   
-  ![image-20230426215600728](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215600728.png)
+  ![image-20230426215600728](./../imgs/image-20230426215600728.png)
   
   - CRC的**计算范围包括帧起始、仲裁段、控制端、数据段**，接收节点在接收数据报文时**也会计算CRC**，与数据报文中的CRC进行比较，**如果不一致会报CRC错误。CRC界定符的值为1**。
   
 - **ACK段**包括1位ACK槽和1位ACK界定符。
   
-  ![image-20230426215616308](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215616308.png)
+  ![image-20230426215616308](./../imgs/image-20230426215616308.png)
   
   - **发送节点在ACK槽输出1**，接收节点**如果正确接收到数据报文，会在ACK槽输出0作为应答**。ACK界定符的值为1。
   
 - **帧结束**是表示该该帧的结束的段。由 7 个位的隐性位构成。
 
-  ![image-20230426215727787](C:\Users\jiang\AppData\Roaming\Typora\typora-user-images\image-20230426215727787.png)
+  ![image-20230426215727787](./../imgs/image-20230426215727787.png)
 
 ## 3.总线仲裁
 
@@ -181,7 +181,7 @@ FunctionalState CAN_TXFP;
 
 - CAN_TXFP：用于设置发送报文的优先级判定方法(ENABLE/DISABLE)， 使能时，以报文存入发送邮箱的先后顺序来发送，否则按照报文 ID 的优先级来发送。
 
- 
+
 $$
 CAN 波特率={Fpclk1\over((TBS1+TBS2+1)*BRP)}
 $$
