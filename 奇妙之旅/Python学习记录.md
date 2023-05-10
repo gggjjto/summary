@@ -22,6 +22,7 @@ Hello World.
 #  end 输出字符串的结束符号，默认值是换行符
 #  file 输出文件的参数，默认值sys.stdout标准输出（控制台）
 #  flush 是否刷新文件输出缓存区
+>>> print(f'{i}*{j}={i*j}')
 ```
 
 #### 命名规则（与c的差不多）
@@ -141,10 +142,16 @@ Hello World.
 > **` str.find(sub[,start[,end]])` ：在`start`和`end`之间查找字符串`sub`，返回最左端位置的索引**
 >
 > **`str.find(sub[,start[,end]])` : 和find差不多，返回最右端位置的索引**
+>
+> **`str.find(sub)`:找到返回0，反之返回-1**
 
 ##### 字符串与数字互相转换
 
 > 使用`int(),float(),str()`
+
+
+
+
 
 #### 运算符
 
