@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.LoginMapper">
+
+    <select id="loginTosystem" resultType="java.lang.String">
+        select username,password from passworld where username=#{username} and password=#{password}
+    </select>
+    <select id="findName" resultType="java.lang.String">
+        select id from passworld where id=#{id}
+    </select>
+</mapper>

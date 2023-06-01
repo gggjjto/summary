@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.StudentMapper">
+
+    <insert id="registerstudent" parameterType="org.example.boot.bean.Student">
+        insert into student(sid,sname, sgender, sbirthday, sclass_id) values (#{student.sid},#{student.sname},#{student.sgender},#{student.sbirthday},#{student.sclass_id})
+    </insert>
+</mapper>
+
+<!---->

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.NameSelectMapper">
+
+    <select id="reqisternameselect" resultType="org.example.boot.bean.Select">
+        SELECT s.sid,c.cid, s.sname,s.sbirthday,s.sclass_id,c.englishscore,c.javascore,c.mathscore,c.sportsscore FROM student s,scores c WHERE s.sid=c.student_id AND s.sname LIKE #{sname}
+    </select>
+</mapper>
