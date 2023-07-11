@@ -1,0 +1,5 @@
+复制环境(两种方法）:
+1、在本机复制到本机：conda create -n 新环境名 --clone 旧环境名
+2、复制到其他机器：
+	一、导出环境：conda env export > 环境名.yaml
+	二、使用yaml配置文件创建新环境：conda env create -f 环境名.yaml
